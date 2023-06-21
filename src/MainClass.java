@@ -49,19 +49,6 @@ class Rectangle {
 	}
 }
 
-class Hotel {
-	int towel, soap, coffee;
-	char service;
-
-	void SuiteRoom(char service) {
-		System.out.println("suite room serve " + service + " class service");
-	}
-
-	void FamilyRoom(char service) {
-		System.out.println("Family room serve " + service + " class service");
-	}
-}
-
 class GetSum {
 	int total, num;
 
@@ -75,7 +62,7 @@ class GetSum {
 		}
 		return total;
 	}
-	
+
 }
 
 class Gugudan {
@@ -89,75 +76,74 @@ class Gugudan {
 
 class Grade {
 	double kor, eng, math;
-	double avg;
-	char grade;
-	
-	void setGrade(double kor, double eng, double math) {
+
+	public void setGrade(double kor, double eng, double math) {
 		this.kor = kor;
 		this.eng = eng;
 		this.math = math;
 	}
-	
+
 	double getAvg() {
-		avg = (kor+eng+math)/3;
-		return avg;
+		return (kor + eng + math) / 3;
 	};
-	
+
 	char getGrade() {
-		if(avg >= 90) {
+		char grade;
+		double avg = getAvg();
+
+		if (avg >= 90) {
 			grade = 'A';
-		} else if (avg >=80) {
+		} else if (avg >= 80) {
 			grade = 'B';
-		}else if (avg >=70) {
+		} else if (avg >= 70) {
 			grade = 'C';
-		}else if (avg >=60) {
+		} else if (avg >= 60) {
 			grade = 'D';
 		} else {
 			grade = 'F';
 		}
+
 		return grade;
 	};
 
 }
 
+class TV {
+	String company;
+	int year, inch;
+
+	TV(String company, int year, int inch) {
+		this.company = company;
+		this.year = year;
+		this.inch = inch;
+	}
+
+	void show() {
+		System.out.println(company + "에서 만든 " + year + "년형 " + inch + "인치 TV");
+	}
+}
+class Song{
+	int year;
+	String title, artist, country;
+	
+	Song(){}
+	Song(int year, String country, String artist, String title){
+		this.title = title;
+		this.artist = artist;
+		this.country = country;
+		this.year = year;
+	}
+	
+	void show() {
+		System.out.println(year+ "년 "+ country+"국적의 " + artist + "가 부른 " + title);
+	}
+	
+}
+
 public class MainClass {
 
 	public static void main(String[] args) {
-//		StarPrint starPrint = new StarPrint();
-//		
-//		starPrint.printTriangle(3);
-//		System.out.println();
-//		starPrint.printReverseTriangle(3);
-//		
-//		
-//		Hotel Hilton = new Hotel();
-//		Hilton.SuiteRoom('A');
-
-		//////////////////
-		GetSum getsum = new GetSum();
-		int num; // 2)num 변수 선언
-
-		num = 10;
-
-		getsum.setNum(num); // 3)getsum 객체의 setNum함수 호출, num값 50 저장
-
-		num = getsum.sum(); // 4)getsum객체의 sum함수 호출, 1-50까지 합 구함
-		System.out.println(num);
-		///////////////////////
-
-		Gugudan gugudan = new Gugudan();
-//		gugudan.printGugu(10);
-		/////////////////////////
-		Grade grade = new Grade();
-		
-		grade.setGrade(90, 70, 60);
-		
-		grade.getAvg();
-		
-		char yourGrade = grade.getGrade();
-		
-		System.out.println(yourGrade);
-		
+	
 	}
 
 }
