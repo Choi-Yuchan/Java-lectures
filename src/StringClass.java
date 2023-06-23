@@ -2,39 +2,22 @@
 
 public class StringClass {
 	// String instance는 immutable instance
-	// 따라서 생성되는 인스턴스의 수를 최소화한다. 
+	// String은 final로 선언되어 있다.
+	// String이 생성됨에 따라 메모리를 사용하게 되므로 생성되는 인스턴스의 수를 최소화한다. 
 
 	public static void main(String[] args) {
-		String str1 = "Simple";
-		String str2 = "Hard";
+		//StringBuilder
+		StringBuilder str = new StringBuilder("123");
 		
-		str1 = str1 + str2;
-		System.out.println(str1);
+		str.append(45678);
+		str.delete(0, 2);
+		str.replace(0, 3, "AB");
+		str.reverse();
 		
-		String str3 = new String("Simple String");
-		String str4 = new String("Simple String");
+		String sub = str.substring(2, 4);
 		
-		//string 비교 
-		if(str1.equals(str3)) {
-			System.out.println("str1과 str2는 동일 인스턴스 참조");
-		} else {
-			System.out.println("str1과 str2는 다른 인스턴스 참조");
-		}
-			
-		//참조하는 주소값 비교 
-		if(str1 == str2) {
-			System.out.println("str1과 str2는 동일 인스턴스 참조");
-		} else {
-			System.out.println("str1과 str2는 다른 인스턴스 참조");
-		}
+		System.out.println(sub);
 		
-		
-		if(str3 == str4) {
-			System.out.println("str1과 str2는 동일 인스턴스 참조");
-		} else {
-			System.out.println("str1과 str2는 다른 인스턴스 참조");
-		}
-
 	}
 
 }
