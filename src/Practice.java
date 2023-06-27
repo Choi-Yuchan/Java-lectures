@@ -1,52 +1,49 @@
-package edu_global.two;
+
+
+//overriding 
+//상속 관게에서 똑같은 함수(이름, 리턴타입, 파라미터)로 바디만 달리하는 것. 
+class Cake {
+	public void yummy() {
+		System.out.println("yummy cake!");
+	}
+}
+
+class CheeseCake extends Cake {
+	public void yummy() {
+		System.out.println("yummy cheese cake!");
+	}
+}
+
+// polymorphism + overriding
+class Robot {
+	public void work() {
+		
+	}
+}
+class DanceRobot extends Robot {
+	public void work() {
+		System.out.println("I am a dancing bot");
+	}
+}
+class DrawRobot extends Robot {
+	public void work() {
+		System.out.println("I am a drawing bot");
+	}
+}
+class WashRobot extends Robot {
+	public void work() {
+		System.out.println("I am a washing bot");
+	}
+}
 
 public class Practice {
 
 	public static void main(String[] args) {
-		ColorTV myTV = new ColorTV(32, 1024);
-		myTV.printProperty();
-		IPTV iptv = new IPTV("192.1.1.2", 32, 2048); // "192.1.1.2" 주소에 32인치, 2048컬러
-		iptv.printProperty();
+		Robot[] arrRobot = {new DanceRobot(), new DrawRobot(), new WashRobot()};
+		
+		for(Robot robot : arrRobot) {
+			robot.work();
+		}
 	}
 
-}
-
-class TV {
-	private int size;
-
-	public TV(int size) {
-		this.size = size;
-	}
-
-	public int getSize() {
-		return size;
-	}
-}
-
-class ColorTV extends TV {
-	private int color;
-
-	ColorTV(int size, int color) {
-		super(size);
-
-		this.color = color;
-	}
-
-	public void printProperty() {
-		System.out.println(super.getSize() + " inch " + color + " color");
-	}
-}
-
-class IPTV extends ColorTV {
-	private String address;
-
-	IPTV(String address, int size, int color) {
-		super(size, color);
-		this.address = address;
-	}
-
-	public void printProperty() {
-		System.out.print('"' + address + '"' + " 주소에 ");
-		super.printProperty();
-	}
 }

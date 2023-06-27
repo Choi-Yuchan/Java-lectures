@@ -1,4 +1,4 @@
-package edu_global.one;
+
 
 import java.util.Scanner;
 

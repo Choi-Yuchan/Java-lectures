@@ -1,4 +1,4 @@
-package edu_global.two;
+
 
 
 public class Lotto {

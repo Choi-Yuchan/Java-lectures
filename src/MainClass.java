@@ -36,19 +36,6 @@ class Circle {
 	}
 }
 
-class Rectangle {
-	double width, height;
-
-	void setWidthHeight(double width, double height) {
-		this.width = width;
-		this.height = height;
-	}
-
-	double getArea() {
-		return width * height;
-	}
-}
-
 class GetSum {
 	int total, num;
 

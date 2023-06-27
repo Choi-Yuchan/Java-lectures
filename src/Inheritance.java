@@ -1,4 +1,4 @@
-package edu_global.one;
+
 
 //inheritance
 class Man {
