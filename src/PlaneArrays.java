@@ -1,8 +1,7 @@
-
-
 import java.util.Scanner;
 
-public class Lecture {
+public class PlaneArrays {
+
 	// enhanced for
 	void foreach() {
 
@@ -55,43 +54,42 @@ public class Lecture {
 			System.out.println();
 		}
 	}
-	void printUpperClass () {
+
+	void printUpperClass() {
 		Scanner scanner = new Scanner(System.in);
-        int rows, columns;
+		int rows, columns;
 
-        while (true) {
-            System.out.print("행의 크기를 입력하세요 (1~10): ");
-            rows = scanner.nextInt();
-            System.out.print("열의 크기를 입력하세요 (1~10): ");
-            columns = scanner.nextInt();
+		while (true) {
+			System.out.print("행의 크기를 입력하세요 (1~10): ");
+			rows = scanner.nextInt();
+			System.out.print("열의 크기를 입력하세요 (1~10): ");
+			columns = scanner.nextInt();
 
-            if (rows >= 1 && rows <= 10 && columns >= 1 && columns <= 10) {
-                break;
-            } else {
-                System.out.println("반드시 1~10 사이의 정수를 입력해야 합니다.");
-            }
-        }
+			if (rows >= 1 && rows <= 10 && columns >= 1 && columns <= 10) {
+				break;
+			} else {
+				System.out.println("반드시 1~10 사이의 정수를 입력해야 합니다.");
+			}
+		}
 
-        char[][] array = new char[rows][columns];
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < columns; j++) {
-                array[i][j] = (char) (65 + (int) (Math.random() * 26));
-            }
-        }
+		char[][] array = new char[rows][columns];
+		for (int i = 0; i < rows; i++) {
+			for (int j = 0; j < columns; j++) {
+				array[i][j] = (char) (65 + (int) (Math.random() * 26));
+			}
+		}
 
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < columns; j++) {
-                System.out.print(array[i][j] + " ");
-            }
-            System.out.println();
-        }
-       scanner.close();
+		for (int i = 0; i < rows; i++) {
+			for (int j = 0; j < columns; j++) {
+				System.out.print(array[i][j] + " ");
+			}
+			System.out.println();
+		}
+		scanner.close();
 	};
 
 	public static void main(String[] args) {
-		
+
 	}
 
 }
-
-
