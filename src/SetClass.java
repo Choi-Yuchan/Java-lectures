@@ -1,6 +1,7 @@
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
+import java.util.TreeSet;
 
 class Person {
 	private int regiNum, passNum, age;
@@ -52,23 +53,13 @@ class Person {
 public class SetClass {
 
 	public static void main(String[] args) {
-		HashSet<Person> hSet = new HashSet<Person>();
-		hSet.add(new Person("LEE", 10));
-		hSet.add(new Person("LEE", 10));
-		hSet.add(new Person("PARK", 35));
-		hSet.add(new Person("PARK", 35));
-
-		System.out.println("저장된 데이터 수: " + hSet.size());
-		System.out.println(hSet);
-
-		Set<Integer> lottoSet = new HashSet<Integer>();
-
-		for (int i = 0; i <= 6; i++) {
-			int num;
-			num = (int) (Math.random() * 45) + 1;
-			lottoSet.add(num);
-		}
-		System.out.println(lottoSet);
+		TreeSet<Integer> tree = new TreeSet<Integer>();
+		tree.add(3);
+		tree.add(1);
+		tree.add(4);
+		tree.add(2);
+		for(Integer n : tree)
+			System.out.print(n.toString() + '\t');
 
 	}
 

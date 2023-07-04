@@ -1,17 +1,15 @@
-import java.util.Set;
-import java.util.HashSet;
+import java.util.Map;
+import java.util.TreeMap;
 
 public class Test {
+    public static void main(String[] args) {
+        TreeMap<Integer, String> map = new TreeMap<>();
+        map.put(45, "Brown");
+        map.put(37, "James");
+        map.put(23, "Martin");
 
-	public static void main(String[] args) {
-		Set<Integer> lotto = new HashSet<>();
-
-		while (lotto.size() != 6) {
-			int num;
-			num = (int) (Math.random() * 45) + 1;
-			lotto.add(num);
-		}
-		System.out.println(lotto);
-	}
-
+        for (Map.Entry<Integer, String> entry : map.entrySet()) {
+            System.out.println(entry.getKey() + " " + entry.getValue());
+        }
+    }
 }
