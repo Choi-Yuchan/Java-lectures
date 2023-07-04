@@ -1,32 +1,53 @@
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.DataOutputStream;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.Scanner;
 
 public class IOStream {
 
 	public static void main(String[] args) throws IOException {
-		OutputStream out = null;
-		try {
-			out = new FileOutputStream("data.dat");
-			out.write(7);
+		Scanner sc = new Scanner(System.in);
+		System.out.print("대상 파일: ");
+		String src = sc.nextLine();
+		System.out.print("사본 파일: ");
+		String dst = sc.nextLine();
 
-		} finally {
-			if (out != null)
-				out.close();
+		try (BufferedInputStream in = new BufferedInputStream(new FileInputStream(src));
+				BufferedOutputStream out = new BufferedOutputStream(new FileOutputStream(dst))) {
+			int data;
+			while (true) {
+				data = in.read();
+				if (data == -1)
+					break;
+				out.write(data);
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
 		}
 
-		InputStream in = null;
-		try {
-			in = new FileInputStream("data.dat");
-			int dat = in.read();
-			System.out.println(dat);
-		} finally {
-			if (in != null)
-				in.close();
-		}
+//
+//		try (InputStream in = new FileInputStream(src); OutputStream out = new FileOutputStream(dst)) {
+//			byte buf[] = new byte[1024];
+//			int len;
+//			int num = 0;
+//			while (true) {
+//				System.out.println(num++);
+//				len = in.read(buf);
+//				if (len == -1)
+//					break;
+//				out.write(buf, 0, len);
+//			}
+//
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+		System.out.println("파일이 복사되었습니다.");
 
 	}
 
