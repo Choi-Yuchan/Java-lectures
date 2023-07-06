@@ -1,5 +1,8 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.io.Reader;
 import java.io.Writer;
 import java.util.Scanner;
@@ -7,29 +10,30 @@ import java.util.Scanner;
 public class SimpleWriter {
 
 	public static void main(String[] args) {
-//		try (Writer out = new FileWriter("data.txt")) {
-//			for (char c = 'A'; c <= 'Z'; c++) {
-//				out.write(c);
-//			}
-//		} catch (Exception e) {
-//			e.getMessage();
-//		}
+		String ks = "공부에 있어서 돈이 꼭 필요한 것은 아니다.";
+		String es = "Life is long if you know how to use it.";
 
-		Scanner sc = new Scanner(System.in);
-		System.out.print("읽을 파일 : ");
-		String src = sc.nextLine();
+		try (BufferedWriter bw = new BufferedWriter(new FileWriter("String.txt"))) {
 
-		try (Reader in = new FileReader(src)) {
-			int ch;
+			bw.write(ks, 0, ks.length());
+
+			bw.newLine();
+			bw.write(es, 0, es.length());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		try (BufferedReader br = new BufferedReader(new FileReader("String.txt"))) {
+			String str;
 			while (true) {
-				ch = in.read();
-
-				if (ch == -1)
+				str = br.readLine();
+				if (str == null)
 					break;
-				System.out.print((char) ch);
+				System.out.println(str);
 			}
+
 		} catch (Exception e) {
-			System.out.println(e.getMessage());
+			e.printStackTrace();
 		}
 	}
 
